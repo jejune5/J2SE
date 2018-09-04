@@ -9,6 +9,8 @@ public class SellTicket implements Runnable {
 	@Override
 	public void run() {
 		while (true) {
+			//省略其他耗时操作....
+			//使用同步代码块对变量i进行同步操作,锁对象为instance
 			synchronized (obj) {
 				if (tickets > 0) {
 					try {
