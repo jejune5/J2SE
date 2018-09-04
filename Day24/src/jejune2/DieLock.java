@@ -23,7 +23,6 @@ public class DieLock extends Thread {
 				synchronized (MyLock.objA) {
 					System.out.println("else objA");
 				}
-
 			}
 		}
 	}
