@@ -7,4 +7,4 @@
 [Day19] : 一、异常         二、File  
 [Day20] : 一、递归         二、IO流 FileInputStream   BufferedInputStream   
 [Day21] : 一、IO流  FileInputStream  InputStreamReader  InputStreamReader BufferedReader   二、IO测试 :复制，自定义类  
-
+[Day22] : 一、IO流 DateInputStream  ByteArrayOutputStream  PrintWriter   RandomAccessFile   二、IO登录案例  
