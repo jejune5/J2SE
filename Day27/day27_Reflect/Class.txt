@@ -1,2 +1,0 @@
-methodName = love
-className = Test.Teacher
