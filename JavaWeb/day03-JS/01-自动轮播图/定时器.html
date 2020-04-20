@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function test() {
+				console.log("setInterval 调用了")
+			}
+			
+			var timerID;
+			function startTimer() {
+				timerID = setTimeout("test()",2000);
+				
+			}
+			function stopTimer() {
+				clearTimeout(timerID);
+			}
+		</script>	
+	</head>
+	<body>
+		<input type="button" value="开启定时器" onclick="startTimer()" />
+		<input type="button" value="关闭定时器" onclick="stopTimer()" />
+		
+	</body>
+</html>

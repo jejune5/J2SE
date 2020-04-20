@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ表单校验</title>
+		<link rel="stylesheet" href="../css/style.css" />
+		<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+		<!--
+			1. 首先给必填项,添加尾部添加一个小红点
+			2. 获取用户输入的信息,做相应的校验
+			3. 事件: 获得焦点, 失去焦点, 按键抬起
+			4. 表单提交的事件
+			
+			Jq的方式来实现:
+				1. 导入JQ的文件
+				2. 文档加载事件: 在必填项后天加一个小红点
+				3. 表单校验确定事件: blur focus keyup
+				4. 提交表单 submit
+		-->
+
+		<script>
+			$(function() {
+				//动态在必填项后面添加小红点
+				$(".mustAdd").after("<font class = 'high'>*</font>");
+
+				//事件绑定      （失去焦点时发生 blur 事件）
+				$(".mustAdd").blur(function() {
+					//alert(this.value);
+					//获得当前事件是谁的
+					//var value = this.value;
+					var value = $(this).val();
+					$(this).parent().find(".formtips").remove();
+
+					//校验用户名
+					//判断当前的值是哪一项输入
+					if($(this).is("#username")) {
+						if(value.length < 6) {
+							$(this).parent().append("<span class='formtips onError'>用户名太短！</span>");
+						} else {
+							$(this).parent().append("<span class = 'formtips onSuccess'>用户名可用！</span>");
+						}
+					}
+
+					//校验密码
+					if($(this).is("#password")) {
+						if(value.length < 6) {
+							$(this).parent().append("<span class='formtips onError'>密码太短</span>");
+						} else {
+							$(this).parent().append("<span class = 'formtips onSuccess'>密码可用</span>");
+						}
+					}
+				}).focus(function() {
+					$(this).triggerHandler("blur");
+				}).keyup(function() {
+					$(this).triggerHandler("blur");
+				});
+
+				//给表单绑定提交事件
+				$("form").submit(function() {
+					//触发所有必填项的校验
+					$(".mustAdd").trigger("focus");
+					//找到错误信息个数
+					if($(".onError").length > 0) {
+						return false;
+					}
+					return true;
+				});
+			});
+			
+			
+		</script>
+
+	</head>
+
+	<body>
+		<form action="../index.html">
+			<div>
+				用户名：<input type="text" class="mustAdd" id="username" />
+			</div>
+			<div>
+				密码：<input type="password" class="mustAdd" id="password" />
+			</div>
+			<div>
+				手机：<input type="tel" />
+			</div>
+			<div>
+				<input type="submit" />
+			</div>
+
+		</form>
+	</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>属性选择器</title>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js" ></script>
+		<script>
+			$(function(){
+				//通过属性选择器去找到 a href
+				$("a[href]").css("color","#FFE0E9");
+				
+				//找出包含 href ,title
+				$("a[href][title]").css("color","#E9FBEB");
+				
+				//找出包含herf title 并且 title ='testTitle'
+				$("a[href][title = 'testTitle']").css("color","green");
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<a href="#">hre f111</a><br />
+		<a href="#" title="testTitle">herf 222</a>
+	</body>
+</html>

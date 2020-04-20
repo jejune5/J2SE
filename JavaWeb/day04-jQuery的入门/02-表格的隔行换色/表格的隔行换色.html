@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格的隔行换色</title>
+		<!--
+			1. 导入JQ的包
+			2. 文档加载完成函数: 页面初始化
+			3. 获得所有的行 :   元素选择器
+			4. 根据行号奇数/偶数去修改颜色
+		-->
+		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+	    <script>
+	    	$(function(){
+	    		
+	    		//获得所有行
+	    		//偶数
+	    		$("tr:even:gt(0)").css("background-color","#FFF38F");
+	    		//奇数
+	    		$("tr:odd").css("background-color","aquamarine");
+	    		
+	    	});
+	    </script>
+		
+	</head>
+	<body>
+		<table border="1px" width="600px"  id="tab"> 
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>分类ID</td>
+				<td>分类名称</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>分类操作</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>1</td>
+				<td>手机数码</td>
+				<td>华为</td>
+				<td>电子产品</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>2</td>
+				<td>运动服装</td>
+				<td>阿迪</td>
+				<td>运动装备</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>3</td>
+				<td>酒类饮料</td>
+				<td>PEPSI</td>
+				<td>喝的玩意儿</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>4</td>
+				<td>休闲零食</td>
+				<td>卫龙</td>
+				<td>吃的玩意儿</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>5</td>
+				<td>生鲜水果</td>
+				<td>apple</td>
+				<td>长出来的</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

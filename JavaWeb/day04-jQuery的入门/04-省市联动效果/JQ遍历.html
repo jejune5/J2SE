@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ遍历</title>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+		<script>
+			//var cities = ["南京","苏州","无锡","常州"];
+			var cities = ["南京","苏州","无锡","常州"];
+			$(function(){ 
+				$(cities).each(function(i,n){
+					console.log(this)
+				});
+			});
+		
+			
+			//如何遍历
+			//JQ对象遍历调用
+			/*
+			$(cities).each(function(i,n){
+				console.log(i +"==="+n);
+			});
+			
+			$(cities).each(function(i,n){
+				console.log(i +">>>"+n);
+			});
+			*/
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

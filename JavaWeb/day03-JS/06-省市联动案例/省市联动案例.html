@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>省市联动案例</title>
+		<script>
+			/*准备数据*/
+			var provinces = [
+				["南京","苏州","无锡","常州","南通"],
+				["杭州","温州","嘉兴","湖州","台州"],
+				["厦门","福州","漳州","泉州","莆田"]
+			];
+			/*
+				1. 确定事件:  onchange
+				2. 函数: selectProvince()
+				3. 函数里面要搞事情了
+					得到当前操作元素
+					得到当前选中的是那一个省份
+					从数组中取出对应的城市信息
+					
+					动态创建城市元素节点
+					添加到城市select中				
+			*/
+			function selectProvince() {
+				var province = document.getElementById("province");
+				//得到当前选中的是哪个省份
+				//alert(province.value);
+				var value = province.value;
+				//从数组中获取对应的城市信息
+				var cities = provinces[value];
+				var citiySelect = document.getElementById("city");
+				//清空select中的option
+				citiySelect.options.length = 0;
+				
+				for (var i = 0;i < cities.length;i++) {
+					//alert(cities[i]);
+					var cityText = cities[i];
+					//动态创建城市元素节点   <option>南京</option>
+					//创建option节点
+					var option1 = document.createElement("option");
+					
+					var textNode = document.createTextNode(cityText);
+					
+					option1.appendChild(textNode);
+					
+					citiySelect.appendChild(option1);
+					
+				}
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<!--选择省份-->
+		<select onchange="selectProvince()" id="province">
+			<option value="-1">--请选择--</option> 
+			<option value="0">江苏省</option>
+			<option value="1">浙江省</option>
+			<option value="2">福建省</option>
+		</select>
+		
+		<!--选择城市-->
+		<select id="city"></select>
+	</body>
+</html>

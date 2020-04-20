@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ中的DOM操作</title>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+		<script>
+			$(function(){
+				$("#btn1").click(function(){
+					//$("#div1").append("<font color='#FF0000' size='5'>大傻逼！</font>");
+//					$("<font color='#FF0000' size='5'>大傻逼！</font>").appendTo("#div1");
+					$("#div1").after("<font color='#FF0000' size='5'>大傻逼！</font>");
+				});
+				
+				$("#btn2").click(function(){
+					$("#div1").prepend("<font color='#FF0000' size='5'>大傻逼！</font>");
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="点我，开喷！#1"/>
+		<input type="button" id="btn2" value="点我，开喷！#2"/>
+		<div id="div1">
+			茅敏敏
+		</div>
+	</body>
+</html>

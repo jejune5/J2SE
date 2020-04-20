@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>程序员老黄历</title>
+		<script>
+		</script>
+		<link rel="stylesheet" href="../css/laohuangli.css" />
+		<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+
+		<script>
+			$(function() {
+				//涉及到请求链接，动态显示数据
+				var url = "http://127.0.0.1:8020/day05-Bootstrap/data.json"
+
+				//ajax 最简单的异步请求网络
+				$.get(url, function(jsonArr) {
+					//var obj = jsonArr[4]; //JSONObject
+					//console.log(jsonArr);
+					var goodCount = Math.floor(Math.random() * 3 + 3); //
+					while(goodCount > 0) { //随机取几条数据
+						//随机取一条数据
+						var index = Math.fllor(Math.random() * jsonArr.length);
+						var obj = jsonArr[index];
+						//适合干的
+						$(".good ul").append("<li><div class = 'name'>" + obj.name + "</div><div class='description'>" + obj.good + "</div><li>");
+						goodCount--;
+					}
+
+					//不适合做的
+					var badCount = Math.floor(Math.random() * 3 + 3);
+					while(badCount > 0) {
+						var index = Math.floor(Math.random() * jsonArr.length);
+						var obj = jsonArr[index];
+
+						$(".good ul").append("<li><div class = 'name'>" + obj.name + "</div><div class='description'>" + obj.bad + "</div><li>");
+						badCount--;
+
+					}
+				});
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="title">
+				程序员老黄历
+			</div>
+			<div class="good">
+				<div class="title">
+					<table>
+						<tr>
+							<td>宜</td>
+						</tr>
+					</table>
+				</div>
+				<div class="content">
+					<ul>
+
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="split"></div>
+
+			<div class="bad">
+				<div class="title">
+					<table>
+						<tr>
+							<td>不宜</td>
+						</tr>
+					</table>
+				</div>
+				<div class="content">
+					<ul>
+						<li>
+							<div class="name">抽烟</div>
+							<div class="description">除非你活够了，死早点没关系</div>
+						</li>
+
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</body>
+
+</html>

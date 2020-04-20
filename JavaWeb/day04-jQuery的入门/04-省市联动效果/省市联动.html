@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>省市联动</title>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+		<script>
+			/*
+			 准备数据
+			 * */
+			var provinces = [
+			["南京","苏州","无锡","常州"],
+			["杭州","温州","嘉兴","台州"],
+			["厦门","福州","漳州","泉州"]			
+			];
+			/*
+			1. 导入JQ的文件
+			2. 文档加载事件:页面初始化
+			3. 进一步确定事件:  change事件
+			4. 函数: 得到当前选中省份
+			5. 得到城市, 遍历城市数据
+			6. 将遍历出来的城市添加到城市的select中
+			*/
+			$(function(){
+				$("#province").change(function(){
+					//alert(provinces[this.value]);
+					//得到城市信息
+					var cities = provinces[this.value];
+					
+					$("#city").empty();
+					
+					$(cities).each(function(i,n){
+						$("#city").append("<option>"+n+"</option>");
+					});
+				});
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<!--选择省份-->
+		<select id="province">
+			<option value="-1">--请选择--</option>
+			<option value="0">江苏</option>
+			<option value="1">浙江</option>
+			<option value="2">福建</option>
+			
+		</select>
+		<!--选择城市-->
+		<select id="city">
+			
+		</select>
+	</body>
+</html>

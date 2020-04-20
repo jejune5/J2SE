@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ和JS对象之间的转换</title>
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		<script>
+			 function changeText() {
+			 	var div = document.getElementById("div1");
+			 	div.innerHTML = "<font color='red'>已用JS方式修改了内容</font>"
+			 }
+			 
+			$(function() {
+				//给按钮绑定事件
+				$("#btn2").click(function(){
+					
+					//找到div1
+					//$("#div1").html("已用JQ方式修改了内容");
+					
+					//将JQ对象转成JS对象来使用
+					var $div = $("#div1");
+					//var $div = $("#div1");
+					
+					//var jsDiv = $div.get(0);
+					//var jsDiv = $div[0];
+					var jsDiv = $div[0];
+					
+					//jsDiv.innerHTML = "JQ转JS对象成功！";
+					jsDiv.innerHTML="jq转成JS对象成功";
+
+				});
+			});
+			 
+		</script>
+	</head>
+	<body>
+		<input type="button" value="用JS修改"  onclick="changeText()"/>
+		<input type="button" value="用JQ修改" id="btn2" />
+		<div id="div1">
+			将用JS/JQ修改内容！
+		</div>
+	</body>
+</html>

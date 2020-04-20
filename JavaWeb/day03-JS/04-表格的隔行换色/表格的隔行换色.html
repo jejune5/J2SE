@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格的隔行换色</title>
+		<!--
+			1. 确定事件: 文档加载完成 onload
+			2. 事件要触发函数: init()
+			3. 函数:操作页面的元素
+					要操作表格中每一行
+					动态的修改行的背景颜色
+		-->
+		<script>
+			function init()  {
+				//得到表格
+				var tab = document.getElementById("tab") ;
+				//得到表格中的每一行
+				var rows = tab.rows;
+				
+				//遍历所有行
+				for (var i = 1;i<rows.length;i++) {
+					var row = rows[i];
+					
+					if(i%2 ==0){
+						row.bgColor = "red";
+					} else {
+						row.bgColor = "gray";
+					}
+				}				
+			}
+			
+		</script>
+	</head>
+	<body onload="init()">
+		<table border="1px" width="600px"  id="tab"> 
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>分类ID</td>
+				<td>分类名称</td>
+				<td>分类商品</td>
+				<td>分类描述</td>
+				<td>分类操作</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>1</td>
+				<td>手机数码</td>
+				<td>华为</td>
+				<td>电子产品</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>2</td>
+				<td>运动服装</td>
+				<td>阿迪</td>
+				<td>运动装备</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>3</td>
+				<td>酒类饮料</td>
+				<td>PEPSI</td>
+				<td>喝的玩意儿</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>4</td>
+				<td>休闲零食</td>
+				<td>卫龙</td>
+				<td>吃的玩意儿</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="checkbox"/>
+				</td>
+				<td>5</td>
+				<td>生鲜水果</td>
+				<td>apple</td>
+				<td>长出来的</td>
+				<td>
+					<a href="#">修改</a>
+					<a href="#">删除</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
